@@ -1,4 +1,4 @@
-<?php $title = "List of Posts"; ?>
+<?php $title = "Add New Post"; ?>
 
 <?php ob_start() ?>
 <a href="/">Back</a><br>
