@@ -1,10 +1,11 @@
 <?php
 
 require_once "route.php";
+require_once "controllers/PostController.php";
 
 // define routes here
 $routes = [
-  
+  Route::get('/home', [PostController::class, 'index']),
 ];
 
 // get url path

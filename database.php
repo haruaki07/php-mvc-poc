@@ -7,9 +7,9 @@ class Database
   public static function getConnection()
   {
     define("DB_HOST", "localhost");
-    define("DB_USERNAME", "demo");
-    define("DB_PASSWORD", "demo");
-    define("DB_NAME", "db");
+    define("DB_USERNAME", "root");
+    define("DB_PASSWORD", "");
+    define("DB_NAME", "blog");
 
     if (self::$conn === null) {
       self::$conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
