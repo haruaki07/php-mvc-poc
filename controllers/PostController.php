@@ -12,6 +12,26 @@ class PostController extends Controller
 
     $this->view("index", compact("articles"));
   }  
+
+  public function create()
+  {
+    $this->view("create");
+  }
+
+  public function store() {
+    $title = $_POST["title"];
+    $content = $_POST["content"];
+
+    Article::createArticle($title, $content);
+
+    $this->redirect("/");
+  }
+
+  public function delete(int $id) {
+    Article::deleteArticle($id);
+    
+    $this->redirect("/");
+  }
 }
 
 

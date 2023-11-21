@@ -27,4 +27,18 @@ class Article
 
     return $articles;
   }
+
+  public static function createArticle($title, $content) {
+    $conn = Database::getConnection();
+
+    $stmt = $conn->prepare("INSERT INTO articles (title, content) VALUES (?, ?)");
+    $stmt->execute([$title, $content]);
+  }
+
+  public static function deleteArticle($id) {
+    $conn = Database::getConnection();
+
+    $stmt = $conn->prepare("DELETE FROM articles WHERE id = ?");
+    $stmt->execute([$id]);
+  }
 }

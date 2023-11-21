@@ -4,8 +4,11 @@ require_once "route.php";
 require_once "controllers/PostController.php";
 
 // define routes here
-$routes = [
-  Route::get('/home', [PostController::class, 'index']),
+$routes = [ 
+  Route::get('/', [PostController::class, 'index']),
+  Route::get('/create', [PostController::class, 'create']),
+  Route::post('/create', [PostController::class, 'store']),
+  Route::get('/delete/([0-9]*)', [PostController::class, 'delete']),
 ];
 
 // get url path
