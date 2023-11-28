@@ -11,7 +11,6 @@
     <tr>
       <th>Id</th>
       <th>Title</th>
-      <th>Content</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -20,8 +19,8 @@
       <tr>
         <td><?= $article->id ?></td>
         <td><?= $article->title ?></td>
-        <td><?= $article->content ?></td>
         <td>
+          <a href="/<?= $article->id ?>">Detail</a>
           <a href="/delete/<?= $article->id ?>">Delete</a>
         </td>
       </tr>

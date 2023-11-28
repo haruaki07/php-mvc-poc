@@ -41,4 +41,13 @@ class Article
     $stmt = $conn->prepare("DELETE FROM articles WHERE id = ?");
     $stmt->execute([$id]);
   }
+
+  public static function getArticleById($id) {
+    $conn = Database::getConnection();
+
+    $result = $conn
+      ->prepare("SELECT * FROM articles WHERE id = $id");
+
+    return $result->fetch();
+  }
 }

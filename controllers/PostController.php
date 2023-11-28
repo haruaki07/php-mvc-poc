@@ -29,8 +29,14 @@ class PostController extends Controller
 
   public function delete(int $id) {
     Article::deleteArticle($id);
-    
+
     $this->redirect("/");
+  }
+
+  public function show(int $id) {
+    $article = Article::getArticleById($id);
+    
+    $this->view("show", compact("article"));
   }
 }
 
