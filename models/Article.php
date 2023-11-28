@@ -46,8 +46,8 @@ class Article
     $conn = Database::getConnection();
 
     $result = $conn
-      ->prepare("SELECT * FROM articles WHERE id = $id");
+      ->query("SELECT * FROM articles WHERE id = $id");
 
-    return $result->fetch();
+    return $result->fetch_assoc();
   }
 }
