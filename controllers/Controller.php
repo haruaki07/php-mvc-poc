@@ -29,5 +29,6 @@ class Controller
     http_response_code($status);
 
     header("Location: " . $url);
+    die();
   }
 }

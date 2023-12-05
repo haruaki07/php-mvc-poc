@@ -18,6 +18,7 @@ $routes = [
 
   Route::get('/login', [AuthController::class, 'index']),
   Route::post('/login', [AuthController::class, 'login']),
+  Route::get('/logout', [AuthController::class, "logout"])
 ];
 
 // get url path

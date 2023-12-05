@@ -2,6 +2,8 @@
 
 <?php ob_start() ?>
 
+<a href="/logout">Logout</a> <br /><br /> 
+
 <a href="/create">Buat Artikel</a>
 
 <p>Daftar Artikel</p>

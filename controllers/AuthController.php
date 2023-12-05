@@ -4,14 +4,22 @@ require_once 'Controller.php';
 require_once __DIR__ . "/../models/User.php";
 
 class AuthController extends Controller
-{
+{ 
   public function index()
   {
+    if (isset($_SESSION["user"])) {
+      $this->redirect('/');
+    }
+    
     $this->view('login');
   }
 
   public function login()
   {
+    if (isset($_SESSION["user"])) {
+      $this->redirect('/');
+    }
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -32,5 +40,11 @@ class AuthController extends Controller
     $_SESSION["user"] = $user;
 
     return $this->redirect('/');
+  }
+  
+  public function logout() {
+    unset($_SESSION["user"]);
+    
+    $this->redirect('/login');
   }
 }
