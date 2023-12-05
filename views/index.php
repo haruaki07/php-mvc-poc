@@ -21,6 +21,7 @@
         <td><?= $article->title ?></td>
         <td>
           <a href="/<?= $article->id ?>">Detail</a>
+          <a href="/edit/<?= $article->id ?>">Edit</a>
           <a href="/delete/<?= $article->id ?>">Delete</a>
         </td>
       </tr>

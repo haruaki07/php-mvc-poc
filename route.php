@@ -48,7 +48,7 @@ class Router
       if ($matchRoutePath && $isValidMethod) {
         list($controller, $method) = $route->handler;
 
-        $controller = new $controller;
+        $controller = new $controller();
 
         array_shift($params); // exclude path from $params
         call_user_func_array([$controller, $method], $params);

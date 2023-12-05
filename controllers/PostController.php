@@ -5,6 +5,12 @@ require_once __DIR__ . "/../models/Article.php";
 
 class PostController extends Controller
 {
+  public function __construct() {
+    if (!isset($_SESSION["user"])) {
+      $this->redirect('/login');
+    }
+  }
+    
   public function index()
   {
 
@@ -37,6 +43,21 @@ class PostController extends Controller
     $article = Article::getArticleById($id);
     
     $this->view("show", compact("article"));
+  }
+
+  public function edit(int $id) {
+    $article = Article::getArticleById($id);
+
+    $this->view("edit", compact("article"));
+  }
+
+  public function update(int $id) {
+    $title = $_POST["title"];
+    $content = $_POST["content"];
+
+    Article::updateArticle($id, $title, $content);
+      
+    $this->redirect("/");
   }
 }
 

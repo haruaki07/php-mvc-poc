@@ -2,7 +2,7 @@
 
 <?php ob_start() ?>
 
-<form action="/create" method="POST">
+<form action="/create" method="POST" >
   <div>
     <label for="title">Judul</label>
     <input type="text" name="title" id="title">

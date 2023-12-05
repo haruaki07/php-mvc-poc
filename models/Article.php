@@ -50,4 +50,13 @@ class Article
 
     return $result->fetch_assoc();
   }
+
+  public static function updateArticle($id, $title, $content) {
+    $conn = Database::getConnection();
+
+    $stmt = $conn->prepare("UPDATE articles SET title = ?, content = ? WHERE id = ?");
+    $stmt->bind_param("ssi", $title, $content, $id);
+
+    $stmt->execute();
+  }
 }
